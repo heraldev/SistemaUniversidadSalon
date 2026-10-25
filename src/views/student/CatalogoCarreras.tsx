@@ -1,29 +1,24 @@
+// Carreras de ejemplo hasta que se conecte el backend.
+const carreras = [
+  { id: 1, tipo: 'Ingeniería', nombre: 'Ingeniería en Software', descripcion: 'Aprende desarrollo web, aplicaciones móviles y bases de datos.' },
+  { id: 2, tipo: 'Licenciatura', nombre: 'Licenciatura en Negocios', descripcion: 'Formación en administración, negocios y finanzas.' },
+];
+
 export default function CatalogoCarreras() {
   return (
-    <div>
-      <h2 className="mb-4 text-center">Oferta Académica Disponibles</h2>
-      <div className="row g-4">
-        <div className="col-md-6">
-          <div className="card h-100 shadow-sm border-0 bg-light">
-            <div className="card-body">
-              <span className="badge bg-primary mb-2">Ingeniería</span>
-              <h4 className="card-title">Ingeniería en Software</h4>
-              <p className="card-text text-muted">Aprende desarrollo web, móvil, bases de datos y arquitectura de sistemas.</p>
-              <button className="btn btn-outline-primary btn-sm">Ver Plan de Estudios</button>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="card h-100 shadow-sm border-0 bg-light">
-            <div className="card-body">
-              <span className="badge bg-success mb-2">Licenciatura</span>
-              <h4 className="card-title">Licenciatura en Negocios</h4>
-              <p className="card-text text-muted">Formación integral en gestión empresarial y finanzas corporativas.</p>
-              <button className="btn btn-outline-primary btn-sm">Ver Plan de Estudios</button>
-            </div>
-          </div>
-        </div>
+    <section>
+      <h1 className="page-title">Oferta académica disponible</h1>
+      <div className="career-grid">
+        {carreras.map(carrera => (
+          <article key={carrera.id} className="career-card">
+            <span className="career-type">{carrera.tipo}</span>
+            <h2>{carrera.nombre}</h2>
+            <p>{carrera.descripcion}</p>
+            {/* La pantalla de detalle se implementará después. */}
+            <button type="button" className="action-btn secondary">Ver más información</button>
+          </article>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,32 +1,34 @@
-# React + TypeScript + Vite
+# Portal Oferta Académica — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Proyecto escolar de Desarrollo Web Integral. React + TypeScript + Vite, React Router y Bootstrap 5.
 
-Currently, two official plugins are available:
+## Iniciar
+1. Abrir una terminal en esta carpeta.
+2. Ejecutar `npm install` (solo la primera vez).
+3. Ejecutar `npm run dev` y abrir la dirección indicada.
+4. Revisar los cambios con `npm run build` antes de subirlos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Reglas simples del equipo
+- Cada integrante trabaja en una rama propia, no directamente en `main`.
+- Antes de trabajar, actualizar desde `upstream/main` e incorporar los cambios a su rama.
+- No cambiar rutas, nombres de componentes ni contratos de API sin avisar al equipo.
+- Mantener componentes pequeños, nombres claros y CSS común en `src/App.css`.
+- Los datos mostrados hoy son **simulados**. No confundirlos con datos del backend.
+- No subir `.git`, `node_modules`, `.env` ni contraseñas en ZIP o commits.
+- Probar en escritorio y celular; comprobar navegación y `npm run build`.
+- Hacer commits descriptivos y abrir Pull Request hacia el repositorio original.
 
-## React Compiler
+## Carpetas
+- `src/`: código del frontend, componentes y estilos.
+- `src/views/`: pantallas divididas por tipo de usuario.
+- `src/routes/`: direcciones URL y navegación.
+- `src/services/`: comunicación futura con backend.
+- `public/`: imágenes y recursos estáticos.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Integración futura con backend
+Conservar el diseño y reemplazar arreglos simulados de las vistas por datos obtenidos de `src/services/`. Manejar estados de carga, errores y lista vacía. Nunca colocar URLs sensibles ni contraseñas en componentes. La autorización real debe validarse también en el backend.
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Diseño simple
+La presentación utiliza estilos básicos en `src/App.css` y `src/index.css`.
+Para mantener uniforme el frontend, utiliza las clases ya existentes (`career-card`, `panel-card`, `action-btn`) antes de crear nuevos estilos.
+Las carreras que se muestran son ejemplos; no se guardan ni consultan datos reales todavía.

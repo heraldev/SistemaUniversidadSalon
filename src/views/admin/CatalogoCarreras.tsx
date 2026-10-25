@@ -1,7 +1,7 @@
 export default function CatalogoCarreras() {
   return (
     <div>
-      <h2 className="mb-4 text-center">Oferta Académica Disponibles</h2>
+      <h2 className="mb-4 text-center">Ofertas Académicas</h2>
       <div className="row g-4">
         <div className="col-md-6">
           <div className="card h-100 shadow-sm border-0 bg-light">

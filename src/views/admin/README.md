@@ -1,9 +1,8 @@
-# Vistas de Administración (`/src/views/admin`)
+# Vistas del administrador
 
-### Reglas básicas:
-1. **Acceso exclusivo**: Estas vistas solo deben usarse para usuarios con rol `ROLE_ADMIN`.
-2. **Funcionalidades permitidas**:
-   - Subir borradores de carreras (`SubirCarrera.tsx`).
-   - Modificar información académica.
-   - Publicar las carreras creadas para que se vuelvan visibles al público (`PublicarOferta.tsx`).
-3. **Consumo de API**: Usar siempre los servicios definidos en `src/services/adminService.ts`.
+- `AdminDashboard.tsx`: lista de carreras y acceso a nueva carrera.
+- `SubirCarrera.tsx`: formulario de una carrera.
+- `PublicarOferta.tsx`: vista existente, por ahora sin acceso desde el panel.
+- No conectar ni simular guardados exitosos hasta tener backend.
+- Mantener tablas, formularios y comentarios sencillos, sin iconos.
+- Reutilizar los estilos de `src/App.css`.

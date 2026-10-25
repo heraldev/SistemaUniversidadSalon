@@ -1,184 +1,45 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+/* Estilos generales del frontend. */
+:root { --azul: #1769bd; --borde: #dbe3ec; }
+.site-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.topbar { background: var(--azul); color: white; }
+.topbar-inner { min-height: 64px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+.brand { color: white; font-size: 19px; font-weight: bold; text-decoration: none; }
+.brand:hover { color: white; }
+.header-links { display: flex; gap: 10px; }
+.header-link { color: white; text-decoration: none; border: 1px solid white; padding: 8px 12px; border-radius: 4px; font-size: 14px; }
+.header-link:hover { background: white; color: var(--azul); }
+.main-area { flex: 1; padding-top: 35px; padding-bottom: 50px; }
+.page-title { margin: 0 0 25px; font-size: 28px; font-weight: 600; }
+.page-title-spaced { margin-top: 20px; }
+.section-title { font-size: 21px; margin: 0 0 18px; }
+.career-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.career-card { background: #e9f2fc; border: 1px solid #cbdff5; border-radius: 6px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; }
+.career-type { background: #d2e4fa; color: #124c89; padding: 5px 9px; border-radius: 4px; font-size: 12px; margin-bottom: 12px; }
+.career-card h2 { font-size: 21px; margin: 0 0 10px; }
+.career-card p { color: #4e5a67; font-size: 15px; margin-bottom: 22px; flex: 1; }
+.action-btn { display: inline-block; background: var(--azul); color: white; border: 1px solid var(--azul); padding: 8px 13px; border-radius: 4px; text-decoration: none; cursor: pointer; font-size: 14px; }
+.action-btn:hover { background: #10569e; color: white; }
+.action-btn.secondary { background: white; color: var(--azul); }
+.action-btn.secondary:hover { background: #f3f7fc; color: var(--azul); }
+.action-btn:disabled { opacity: .55; cursor: not-allowed; }
+.admin-actions { margin-bottom: 20px; }
+.panel-card { background: white; border: 1px solid var(--borde); border-radius: 6px; padding: 22px; }
+.table-scroll { overflow-x: auto; }
+.custom-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.custom-table th, .custom-table td { padding: 13px; border-bottom: 1px solid var(--borde); text-align: left; }
+.custom-table th { background: #edf2f7; }
+.back-link { color: var(--azul); font-size: 14px; text-decoration: none; }
+.form-card { max-width: 760px; }
+.field { margin-bottom: 18px; }
+.field label { display: block; margin-bottom: 7px; font-weight: 600; }
+.form-control, .form-select { width: 100%; border: 1px solid #cbd5df; border-radius: 4px; padding: 9px 10px; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; }
+@media (max-width: 767px) {
+  .topbar-inner { flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+  .brand { font-size: 17px; }
+  .header-links { flex-wrap: wrap; }
+  .main-area { padding-top: 25px; }
+  .page-title { font-size: 24px; }
+  .career-grid { grid-template-columns: 1fr; }
+  .career-card, .panel-card { padding: 18px; }
 }

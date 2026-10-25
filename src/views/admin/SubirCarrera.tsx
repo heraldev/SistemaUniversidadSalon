@@ -2,32 +2,30 @@ import { Link } from 'react-router-dom';
 
 export default function SubirCarrera() {
   return (
-    <div className="col-md-8 mx-auto">
-      <div className="card shadow-sm">
-        <div className="card-header bg-white">
-          <h4 className="mb-0">Subir Nueva Carrera</h4>
-        </div>
-        <div className="card-body">
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div className="mb-3">
-              <label className="form-label fw-semibold">Nombre de la Carrera</label>
-              <input type="text" className="form-control" placeholder="Ej. Ingeniería Mecatrónica" />
-            </div>
-            <div className="mb-3">
-              <label className="form-label fw-semibold">Facultad / Área</label>
-              <input type="text" className="form-control" placeholder="Ej. Ingeniería" />
-            </div>
-            <div className="mb-3">
-              <label className="form-label fw-semibold">Descripción y Plan de Estudios</label>
-              <textarea className="form-control" rows={4} placeholder="Escribe el objetivo de la carrera..."></textarea>
-            </div>
-            <div className="d-flex justify-content-end gap-2">
-              <Link to="/admin/carreras" className="btn btn-secondary">Cancelar</Link>
-              <button type="submit" className="btn btn-success">Guardar Borrador</button>
-            </div>
-          </form>
-        </div>
+    <section>
+      <Link to="/admin/carreras" className="back-link">Volver a carreras</Link>
+      <h1 className="page-title page-title-spaced">Nueva carrera</h1>
+      <div className="panel-card form-card">
+        {/* El formulario no envía datos hasta tener backend. */}
+        <form onSubmit={e => e.preventDefault()}>
+          <div className="field">
+            <label htmlFor="nombre">Nombre de la carrera</label>
+            <input id="nombre" className="form-control" placeholder="Ej. Ingeniería Mecatrónica" />
+          </div>
+          <div className="field">
+            <label htmlFor="facultad">Facultad / Área</label>
+            <input id="facultad" className="form-control" placeholder="Ej. Ingeniería" />
+          </div>
+          <div className="field">
+            <label htmlFor="descripcion">Descripción y plan de estudios</label>
+            <textarea id="descripcion" className="form-control" rows={5} />
+          </div>
+          <div className="form-actions">
+            <Link to="/admin/carreras" className="action-btn secondary">Cancelar</Link>
+            <button className="action-btn" type="submit" disabled>Guardar</button>
+          </div>
+        </form>
       </div>
-    </div>
+    </section>
   );
 }

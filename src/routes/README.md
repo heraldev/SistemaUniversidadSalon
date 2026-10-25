@@ -1,6 +1,7 @@
-# Rutas de la Aplicación (`/src/routes`)
+# routes — Navegación
 
-### Reglas básicas:
-1. **`AppRouter.tsx`**: Contiene la raíz de la app y distribuye entre `/admin/*` y `/alumno/*`.
-2. **Estructura modular**: Cada módulo (`admin`, `student`) maneja su propio archivo de rutas (`AdminRoutes.tsx`, `StudentRoutes.tsx`).
-3. **Navegación**: Utilizar componentes `<Link>` o `useNavigate` de `react-router-dom` para no recargar la página.
+- `AppRouter.tsx`: punto principal de navegación y página 404.
+- `StudentRoutes.tsx`: ruta `/alumno/carreras`.
+- `adminRoutes.tsx`: rutas `/admin/carreras`, `/admin/carreras/nueva`, `/admin/carreras/publicar`.
+- No renombrar rutas sin coordinarlo con los compañeros.
+- Las rutas no sustituyen la autorización del servidor; proteger acceso cuando exista autenticación.

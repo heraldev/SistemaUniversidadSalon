@@ -1,33 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import AppRouter from './routes/AppRouter';
+import './index.css';
+import './App.css';
 
 export default function App() {
+  const esAdmin = useLocation().pathname.startsWith('/admin');
+
   return (
-    <div>
-      {/* Navbar Global de Bootstrap */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
-        <div className="container">
-          <Link className="navbar-brand fw-bold" to="/">
-            <i className="bi bi-mortarboard-fill me-2"></i>
-            Portal Oferta Académica
-          </Link>
-          <div className="d-flex align-items-center gap-2">
-            <Link to="/alumno/carreras" className="btn btn-outline-light btn-sm">
-              <i className="bi bi-book me-1"></i> Ver Carreras
-            </Link>
-
-            {/* Botón directo a la vista de Administración */}
-            <Link to="/admin/carreras" className="btn btn-warning btn-sm fw-bold">
-              <i className="bi bi-shield-lock-fill me-1"></i> Panel Admin
-            </Link>
-          </div>
+    <div className="site-shell">
+      <header className="topbar">
+        <div className="container topbar-inner">
+          <Link className="brand" to="/alumno/carreras">Portal Oferta Académica</Link>
+          <nav className="header-links" aria-label="Navegación principal">
+            {esAdmin && <NavLink to="/alumno/carreras" className="header-link">Ver carreras</NavLink>}
+            <NavLink to="/admin/carreras" className="header-link">Panel admin</NavLink>
+          </nav>
         </div>
-      </nav>
-
-      {/* Render de Rutas */}
-      <main className="container pb-5">
-        <AppRouter />
-      </main>
+      </header>
+      <main className="container main-area"><AppRouter /></main>
     </div>
   );
 }
